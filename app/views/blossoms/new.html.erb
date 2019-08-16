@@ -1,0 +1,42 @@
+<h1>Blossoms#new</h1>
+<p>Find me in app/views/blossoms/new.html.erb</p>
+
+<div>
+<%= form_with(model: @new_blossom) do |f| %>
+
+	<table>
+	  <caption>花を登録</caption>
+	  <thead>
+
+	    <tr>
+          <th><%= f.label :hiaragana, "ひらがな / カタカナ" %></th>
+          <th><%= f.label :kanji, "漢字" %></th>
+          <th><%= f.label :english_name, "英名" %></th>
+	        <th><%= f.label :season, "季節" %></th>
+	    </tr>
+	    
+	  </thead>
+	  <tbody>
+
+			<tr>
+				<td><%= f.text_field :hiragana, name: "blossoms[][hiragana]" %></td>
+				<td><%= f.text_field :kanji, name: "blossoms[][kanji]" %></td>
+				<td><%= f.text_field :english_name, name: "blossoms[][english_name]" %></td>
+				<td><%= f.select :season, Blossom.seasons, { include_hidden: false }, 
+		    { class: 'sample_select2', multiple: true } %></td>
+			</tr>
+			<tr>
+			  <td><%= f.text_field :hiragana, name: "blossoms[][hiragana]" %></td>
+				<td><%= f.text_field :kanji, name: "blossoms[][kanji]" %></td>
+				<td><%= f.text_field :english_name, name: "blossoms[][english_name]" %></td>
+				<td><%= f.select :season, Blossom.seasons, { include_hidden: false }, 
+		    { class: 'sample_select2', multiple: true } %></td>
+      </tr>
+            	       
+	  </tbody>
+	</table>
+
+	<%= f.submit "登録" %>
+<% end %>
+
+
